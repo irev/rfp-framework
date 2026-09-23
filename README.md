@@ -23,7 +23,11 @@ This repository is a technology-agnostic reference for designing a multi-tenant 
 | Open choices | [Decision log](docs/11-decision-log.md) |
 | Design decision records | [ADR index](docs/adr/README.md) |
 
-The public [repository site](https://irev.github.io/rfp-framework/) is a navigation and overview page. `docs/` remains the source of truth. The [skills catalog](skills/README.md) groups project-specific and reusable `SKILL.md` guidance for coding agents.
+The public [documentation site](https://irev.github.io/rfp-framework/) renders `docs/` as searchable pages. Its Skills section is generated from the source files in [skills/](skills/README.md), so readers can navigate the guidance without opening GitHub's code view.
+
+## Documentation development
+
+Use Node.js 22 or newer. Run `npm ci`, then `npm run docs:dev` for a local preview or `npm run docs:build` to check the production output. The build generates pages for the skill files and publishes through `.github/workflows/docs.yml` on pushes to `main`.
 
 ## Non-negotiable design rule
 
