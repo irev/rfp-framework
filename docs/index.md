@@ -3,6 +3,12 @@ title: Ikhtisar
 description: Peta dokumentasi Request for Payment Platform untuk pengembangan enterprise dan SaaS.
 ---
 
+<script setup>
+import ProcessExplorer from './.vitepress/theme/components/ProcessExplorer.vue'
+</script>
+
+<p class="rfp-home-eyebrow">PANDUAN PRODUK · ENTERPRISE / SAAS</p>
+
 # Request for Payment Platform
 
 **Blueprint enterprise · status usulan**
@@ -12,6 +18,8 @@ Dokumentasi ini menjadi acuan untuk merancang platform pengajuan pembayaran yang
 ::: warning Status dokumen
 Aturan dan contoh di sini adalah rancangan. Keputusan bisnis yang belum disahkan tercatat pada [decision log](./11-decision-log.md); jangan menganggapnya sebagai kebijakan produksi.
 :::
+
+<ProcessExplorer />
 
 ## Pilih jalur baca
 
