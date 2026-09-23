@@ -13,3 +13,7 @@ Use when a public/internal API, webhook, or event schema is designed or changed.
 4. Tie contract examples to testable success, invalid, unauthorized, duplicate, concurrency, timeout, and unknown-outcome cases as appropriate. Use OpenAPI, AsyncAPI, or another schema format only if it matches the interface.
 
 Report concrete findings with affected contract paths and consequences. Do not assume a REST API when the integration is event- or file-based.
+
+Read `docs/00-guide.md` and `docs/12-platform-rules.md` first. This is a new enterprise product baseline; do not infer rules, status meanings, or posting timing from an earlier RFP project.
+
+For this platform, verify explicit action commands instead of status PATCH, decimal-string money fields, optimistic version conflicts, RFC 9457 errors, and event tenant/correlation/causation metadata. Read `docs/13-data-contracts.md`; never put bank details or document contents into routine events.

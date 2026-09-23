@@ -12,6 +12,7 @@ export default defineConfig({
     siteTitle: 'RFP Framework',
     nav: [
       { text: 'Ikhtisar', link: '/' },
+      { text: 'Panduan', link: '/00-guide' },
       { text: 'Kebutuhan', link: '/01-brd' },
       { text: 'Domain & arsitektur', link: '/05-domain-model' },
       { text: 'Skills', link: '/skills/' },
@@ -21,6 +22,8 @@ export default defineConfig({
         text: 'Mulai di sini',
         items: [
           { text: 'Ikhtisar', link: '/' },
+          { text: 'Acuan & batas', link: '/00-guide' },
+          { text: 'Aturan platform', link: '/12-platform-rules' },
           { text: 'Glosarium EN–ID', link: '/09-glossary-en-id' },
         ],
       },
@@ -39,6 +42,8 @@ export default defineConfig({
         items: [
           { text: 'Model domain', link: '/05-domain-model' },
           { text: 'Arsitektur teknis', link: '/06-architecture' },
+          { text: 'Data, API & event', link: '/13-data-contracts' },
+          { text: 'Onboarding skenario', link: '/14-scenario-onboarding' },
           { text: 'Keamanan & operasi', link: '/07-security-operations' },
         ],
       },

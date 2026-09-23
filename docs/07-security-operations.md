@@ -23,3 +23,13 @@ Define service-level objectives, alert thresholds, backup frequency, RPO/RTO, re
 ## Reference frameworks
 
 Use ISO/IEC/IEEE 29148 for requirements structure, ISO/IEC/IEEE 42010 for architecture description, OWASP ASVS for application security checks, and WCAG 2.2 for accessibility targets as applicable. Mentioning these references does not assert compliance or certification.
+
+## Detailed production baseline
+
+Resolve tenant context from authenticated identity and authorized relationships, never solely from a caller-supplied header. Deny by default. A business action needs both resource permission and eligibility in the current workflow step. Keep bank and identity snapshots under restricted field access; store ERP credentials as secret references. Uploads use extension/type/signature/size checks, quarantine, malware scanning, generated object keys, private storage, and authorized download.
+
+P0 operational guarantees include atomic financial transitions, optimistic concurrency, durable outbox/queue, idempotent ERP operations, immutable document versions, tenant isolation, audit, backups, health monitoring, secure secrets, and controlled retries. Availability, latency, RPO/RTO, retention, and residency numbers remain open deployment contracts.
+
+Carry trace and correlation IDs through API, workflow, queue, AI, and ERP; log tenant and aggregate identifiers only where authorized. Never log full bank account, tax number, document body, access token, password, or ERP credential. Monitor business health: stuck requests, return reasons, unresolved corrections, low-confidence AI extractions, outbox age, ERP failures, and unreconciled submissions.
+
+Minimum verification adds negative authorization and cross-tenant tests, every legal/illegal transition, concurrent approvals, document return/reupload, API/event schema compatibility, outbox crash recovery, duplicate delivery, ERP uncertain timeout, file abuse, resilience, and restore exercises. AI upgrades require an annotated golden dataset and measured extraction errors. See [platform rules](12-platform-rules.md).

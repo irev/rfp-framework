@@ -11,7 +11,7 @@ A marketable RFP product must support customer policy differences without weaken
 
 ## Decision
 
-Expose only bounded, schema-validated, versioned configuration for allowed choices. Keep tenant isolation, authorization, transition integrity, audit provenance, idempotency, and consistency in core code. Bind each submitted case to a published policy version. Review and simulate configuration before it becomes effective.
+Expose only bounded, schema-validated, versioned configuration for allowed choices. Keep tenant isolation, authorization, transition integrity, audit provenance, idempotency, and consistency in core code. Pin scenario definition when a draft is created; bind workflow, document, accounting, and integration versions by first submission. Published versions are immutable. Any rebase or migration is explicit, authorized, and audited. Review and simulate configuration before it becomes effective.
 
 ## Consequences
 
@@ -20,3 +20,7 @@ The platform needs a policy schema, review workflow, effective-date handling, an
 ## Alternatives considered
 
 Customer forks increase drift and upgrade cost. Unrestricted scripting makes authority, security, and audit behavior difficult to reason about. Both are rejected for the initial architecture.
+
+## Clarification from the research basis
+
+Configuration determines permitted business variation; core code enforces how it runs and preserves correctness. A reusable capability may be added to shared product code; a unique invariant uses a named handler/policy; a new scenario requires a distinct business purpose or lifecycle/accounting meaning. [Platform rules](../12-platform-rules.md) and [scenario onboarding](../14-scenario-onboarding.md) govern the classification.

@@ -14,3 +14,15 @@
 | DEC-08 | Advance settlement and multi-payee constraints | Define amount, currency, partial settlement, and reference rules with finance. | Finance: TBD / Open |
 
 No row is an approved requirement until its owner records a decision. Avoid burying customer exceptions in shared code or using configuration as a way around core guarantees.
+
+## Additional research decisions
+
+| ID | Decision to make | Proposed starting point | Owner/status |
+| --- | --- | --- | --- |
+| DEC-09 | Tenant hierarchy and isolation deployment options | Support verified tenant context; decide shared DB/schema, tenant DB, dedicated deployment, or hybrid by contract. | Architecture/security: TBD / Open |
+| DEC-10 | SAP edition, release, API/IDoc/RFC route, and object mapping | Keep canonical command and ACL; validate exact customer landscape before mapping. | ERP/finance: TBD / Open |
+| DEC-11 | AI provider, allowed data boundary, review thresholds, golden dataset | Optional async enrichment with human authority. | Product/security: TBD / Open |
+| DEC-12 | SaaS tiers, entitlements, metering, dedicated deployment offer | Packaging is commercial policy; never weaken platform guarantees by tier. | Product/commercial: TBD / Open |
+| DEC-13 | Business completion, integration reconciliation, and settlement evidence | Define each status and authoritative evidence independently. | Finance/operations: TBD / Open |
+
+No decision imports rules or timing from an earlier RFP implementation. The [research basis](00-guide.md) controls scope; examples in that report are illustrative.

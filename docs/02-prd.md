@@ -37,3 +37,13 @@ Bank payment execution, generic accounting ledger ownership, automatic approval 
 ## Open product choices
 
 See `DEC-01` through `DEC-07` in [decision log](11-decision-log.md). These include visibility/licensing, target markets, tenant model, workflow flexibility, and retention policy.
+
+## Research-derived product capabilities
+
+| ID | Capability | Release condition |
+| --- | --- | --- |
+| PR-09 | Immutable published scenario/workflow/document/accounting/integration definitions with explicit request binding and configuration provenance. | Foundation; rebase and migration must be explicit. |
+| PR-10 | Separate business, integration, and completion views, including uncertain ERP outcome handling. | Required before financial handoff release. |
+| PR-11 | Scenario onboarding with capability/handler decision, automated definition validation, and monitored rollout. | Required before tenant-authored scenarios. |
+
+The product starts as a modular monolith with explicit bounded contexts and transactional core. Commercial tiers, tenant topology, and AI provider are open product decisions. [Scenario onboarding](14-scenario-onboarding.md) defines the proposed operating procedure.

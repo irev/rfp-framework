@@ -13,3 +13,7 @@ Use when a security model or threat review is requested for a real design or imp
 4. Identify facts that need validation with product, finance, infrastructure, or an integration owner. Do not claim a vulnerability is exploitable or remediated without supporting evidence.
 
 Do not make repository changes unless the request includes fixes or documentation updates. A threat model is not a certification or a substitute for implementation testing.
+
+Read `docs/00-guide.md` and `docs/12-platform-rules.md` first. This is a new enterprise product baseline; do not infer rules, status meanings, or posting timing from an earlier RFP project.
+
+Include configuration publication, policy inheritance/provenance, AI provider boundary, outbox replay, uncertain ERP outcomes, and adapter credential references in the relevant threat paths. A tenant identifier from a client header is not proof of tenant authority.

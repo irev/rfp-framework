@@ -14,3 +14,7 @@ Use this skill when a customer requests a new transaction type, transfer list, p
 5. Describe policy publication, effective date, existing-case behavior, and representative valid/invalid examples. Update requirements and traceability if the scenario is accepted.
 
 Treat `OTHER_PAYMENT` as a controlled scenario requiring a concrete purpose and review, not a permanent bucket for undefined behavior.
+
+Read `docs/00-guide.md` and `docs/12-platform-rules.md` first. This is a new enterprise product baseline; do not infer rules, status meanings, or posting timing from an earlier RFP project.
+
+Apply the decision sequence in `docs/14-scenario-onboarding.md`: configuration → reusable capability → named handler/policy → new `PaymentScenario` only for a different purpose/lifecycle/accounting meaning. Pin published definition versions and record config provenance; publication requires schema and cross-reference tests.

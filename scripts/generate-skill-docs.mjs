@@ -21,7 +21,7 @@ for (const entry of await readdir(outputRoot, { withFileTypes: true })) {
 }
 
 const catalog = await readFile(join(skillsRoot, 'README.md'), 'utf8')
-const siteCatalog = catalog.replace(/\(([^/()]+)\/SKILL\.md\)/g, '($1.md)')
+const siteCatalog = catalog.replace(/\(([^/()]+)\/SKILL\.md\)/g, '($1.md)').replaceAll('../docs/', '../')
 await writeFile(join(outputRoot, 'index.md'), siteCatalog, 'utf8')
 
 for (const name of skills) {

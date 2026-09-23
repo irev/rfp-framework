@@ -13,3 +13,5 @@ Use for UI/UX plans, forms, document upload, returned-case correction, work queu
 - Recommend the smallest usable change and a way to verify it. Check that correction, upload, and approval actions remain understandable without color or pointer-only cues.
 
 Do not report a WCAG pass based solely on static markup or an automated score.
+
+Read `docs/00-guide.md` and `docs/12-platform-rules.md` first. This is a new enterprise product baseline; do not infer rules, status meanings, or posting timing from an earlier RFP project.

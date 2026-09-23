@@ -11,7 +11,7 @@ Use task-based navigation: **My drafts**, **My submitted requests**, **Assigned 
 ```text
 Choose scenario → Enter business context → Add payee/payment details
 → Add required evidence → Review validation → Submit
-→ Verify → Approve/return → Authorize → ERP handoff → Reconcile
+→ Verify → Approve/return → Business authorization → ERP handoff → Reconcile external outcome
 ```
 
 | Step | Screen behavior | Error/empty behavior |
@@ -35,3 +35,9 @@ Choose scenario → Enter business context → Add payee/payment details
 ## Example: returned case
 
 Requester opens **Returned for correction**, reads the verifier's reason, edits only allowed fields, replaces an invalid receipt, reviews the diff and revised total, then resubmits. The next reviewer sees both revisions and the reason for return.
+
+## Research-derived interaction details
+
+Show the scenario definition and document/workflow policy version that governs the case. A draft may offer **explicit rebase** to a newer definition; show what changes and require a deliberate action. In reviewer views, show eligibility and authority separately: a generic permission does not make someone the actor for the current step.
+
+The return screen groups `ReturnItems` by document, field, payment item, payee, or reference, with the baseline version and correction status. A new upload visibly creates a new immutable `DocumentVersion`. The case timeline distinguishes business state, ERP submission state, and external completion evidence. Optional AI analysis shows extraction source/confidence and human correction; it never presents AI as an approver.

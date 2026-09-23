@@ -14,3 +14,7 @@ Read `docs/03-srs-fsd.md`, `docs/04-ui-ux-user-flows.md`, `docs/07-security-oper
 - Keep authorization, ERP integration, and settlement statuses distinct. A portal approval alone is not proof that money was paid.
 
 Produce a compact transition table, affected evidence/version rules, acceptance scenarios, and open decisions. Do not infer a customer's accounting or commitment timing from generic state names.
+
+Read `docs/00-guide.md` and `docs/12-platform-rules.md` first. This is a new enterprise product baseline; do not infer rules, status meanings, or posting timing from an earlier RFP project.
+
+Use distinct business and integration state machines as described in `docs/12-platform-rules.md`. A role permission and current-step eligibility must both pass. Model `ReturnCase`/`ReturnItem` targets and baselines; close an item only after a permitted correction. Treat asynchronous AI output as evidence with version/model provenance, not authority.

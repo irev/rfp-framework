@@ -1,6 +1,6 @@
 # Skills catalog
 
-Setiap skill berada di `skills/{nama}/SKILL.md` dengan frontmatter `name` dan `description`. Skill ini adalah panduan kerja untuk AI coding agent, bukan implementasi fitur aplikasi. Baca hanya skill yang sesuai dengan tugas. `AGENTS.md` mengarahkan agent di repository ini ke katalog tersebut.
+Setiap skill berada di `skills/{nama}/SKILL.md` dengan frontmatter `name` dan `description`. Skill ini adalah panduan kerja untuk AI coding agent, bukan implementasi fitur aplikasi. Baca hanya skill yang sesuai dengan tugas. Semua skill primary dan supporting merujuk [acuan riset](../docs/00-guide.md) serta [aturan platform](../docs/12-platform-rules.md); contoh dari proyek RFP terdahulu tidak menjadi aturan produk ini. `AGENTS.md` mengarahkan agent di repository ini ke katalog tersebut.
 
 ## Primary — khusus rfp-framework
 

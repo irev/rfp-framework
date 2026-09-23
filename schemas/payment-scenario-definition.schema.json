@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rfp:schemas:payment-scenario-definition:v1",
+  "title": "PaymentScenarioDefinition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["code", "version", "status", "allowedScopes", "allowedProcurementContexts", "capabilities", "workflowProfileRef", "documentPolicyRef"],
+  "properties": {
+    "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": { "enum": ["DRAFT", "ACTIVE", "RETIRED"] },
+    "effectiveFrom": { "type": ["string", "null"], "format": "date-time" },
+    "effectiveUntil": { "type": ["string", "null"], "format": "date-time" },
+    "allowedScopes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["INTERNAL", "EXTERNAL"] } },
+    "allowedProcurementContexts": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["PO_BASED", "CONTRACT_BASED", "NON_PO", "NO_PROCUREMENT"] } },
+    "allowedPayeeTypes": { "type": "array", "uniqueItems": true, "items": { "enum": ["VENDOR", "EMPLOYEE", "INDIVIDUAL", "GOVERNMENT", "ORGANIZATION", "OTHER"] } },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "config"],
+        "properties": { "code": { "type": "string" }, "config": { "type": "object" } }
+      }
+    },
+    "handlerKey": { "type": ["string", "null"] },
+    "workflowProfileRef": { "type": "string", "minLength": 1 },
+    "documentPolicyRef": { "type": "string", "minLength": 1 },
+    "accountingProfileRef": { "type": ["string", "null"] },
+    "integrationProfileRefs": { "type": "array", "uniqueItems": true, "items": { "type": "string" } }
+  }
+}

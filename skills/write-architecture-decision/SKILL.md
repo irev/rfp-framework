@@ -13,3 +13,5 @@ Use for a choice that changes a long-lived boundary, data ownership, integration
 - Review for contradictions with existing accepted ADRs and update only necessary references.
 
 Return the ADR path, status, affected requirements, and unresolved consequences. Do not treat a conversation suggestion as owner approval.
+
+Read `docs/00-guide.md` and `docs/12-platform-rules.md` first. This is a new enterprise product baseline; do not infer rules, status meanings, or posting timing from an earlier RFP project.

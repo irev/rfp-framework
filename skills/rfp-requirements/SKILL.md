@@ -14,3 +14,7 @@ Use this skill for a new product capability, changed business rule, or requireme
 5. Report changed IDs, proposed acceptance evidence, unresolved decisions, and any requirement that remains unmatched in traceability.
 
 The documents are planning artifacts, not proof that an implementation exists or meets a standard. Preserve the distinction between a portal `RequestForPayment` and a downstream ERP `PaymentRequest`.
+
+Read `docs/00-guide.md` and `docs/12-platform-rules.md` first. This is a new enterprise product baseline; do not infer rules, status meanings, or posting timing from an earlier RFP project.
+
+When adding an FR/NFR, include version pinning, separate business/integration status, config provenance, AI authority, and uncertain ERP outcome where relevant. Keep `docs/08-traceability.md` synchronized with newly assigned IDs.

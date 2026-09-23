@@ -4,7 +4,7 @@
 
 ## Bounded contexts
 
-Request Management; Classification; Payee; Procurement Context; Payment Instruction; Documents; Workflow and Approval; Business Rules; Return and Correction; Accounting Context; ERP Integration; Audit and Compliance; Tenant Configuration. Context boundaries describe ownership and contracts, not mandatory microservices.
+Eleven logical bounded contexts: `RequestManagement`, `ScenarioCatalog`, `PayeeAndPayment`, `Procurement`, `DocumentEvidence`, `Workflow`, `Authorization`, `Accounting`, `Integration`, `TenantConfiguration`, and `AuditAndObservability`. They are ownership boundaries inside an initial modular monolith, not eleven microservices.
 
 ## Aggregate and relationships
 
@@ -14,9 +14,9 @@ RequestForPayment
 ├── classification and scenario-specific data
 ├── payees and proposed payment instructions
 ├── references (e.g. advance → settlement)
-├── submission revisions and workflow decisions
+├── submission revisions and workflow references
 ├── supporting document references and versions
-└── integration references and reconciliation events
+└── integration references
 ```
 
 The aggregate controls allowed state changes and consistency of its own revision. Documents may be stored separately but must be bound to a request revision and protected by the same tenant and authorization policies.
@@ -26,9 +26,9 @@ The aggregate controls allowed state changes and consistency of its own revision
 | Dimension | Example values | Meaning |
 | --- | --- | --- |
 | `requestScope` | `INTERNAL`, `EXTERNAL` | Who initiates the business request. |
-| `paymentScenario` | `VENDOR_INVOICE`, `EMPLOYEE_PAYMENT`, `ADVANCE`, `ADVANCE_SETTLEMENT`, `UTILITY_PAYMENT`, `OTHER_PAYMENT` | Business reason and lifecycle rules. |
+| `paymentScenario` | `VENDOR_INVOICE`, `EMPLOYEE_REIMBURSEMENT`, `EMPLOYEE_BENEFIT`, `HONORARIUM`, `ADVANCE`, `ADVANCE_SETTLEMENT`, `UTILITY_PAYMENT`, `REFUND`, `REGULATORY_PAYMENT`, `OTHER_PAYMENT` | Business reason and lifecycle rules. |
 | `procurementContext` | `PO_BASED`, `CONTRACT_BASED`, `NON_PO`, `NO_PROCUREMENT` | Source of procurement commitment/evidence. |
-| `payeeType` | `VENDOR`, `EMPLOYEE`, `INDIVIDUAL`, `GOVERNMENT`, `OTHER` | Party receiving payment. |
+| `payeeType` | `VENDOR`, `EMPLOYEE`, `INDIVIDUAL`, `GOVERNMENT`, `ORGANIZATION`, `OTHER` | Party receiving payment. |
 | `vendorClassification` | `REGISTERED_VENDOR`, `ONE_TIME_VENDOR` | Vendor master relationship; applicable only to vendor payees. |
 | `paymentStructure` | `SINGLE_PAYEE`, `MULTI_PAYEE` | Number of beneficiaries/instructions. |
 
@@ -45,3 +45,11 @@ Before adding a scenario, define: identity and purpose; permitted scopes; reques
 | Tenant isolation, authorization, state transitions, audit integrity, document provenance, idempotency, amount/currency consistency | Required document matrix, allowed scenarios, field visibility, approval thresholds, routing rules, labels, ERP code mapping |
 
 A configuration engine may select among permitted transitions; it cannot create an unaudited transition or bypass segregation of duties. Validate configuration against a schema and simulate it before publication.
+
+## Aggregate boundaries and reusable behavior
+
+The core aggregates are `RequestForPayment`, versioned `PaymentScenarioDefinition`, `Document`, versioned `WorkflowDefinition`, runtime `WorkflowInstance`, and `IntegrationSubmission`. Payee, payment instruction, return case, and business reference can remain inside the request boundary until independent lifecycle or concurrency needs justify extraction.
+
+`Capability` is reusable behavior such as `MULTI_PAYEE`, `REFERENCE_REQUEST`, `SETTLEMENT`, `ONE_TIME_VENDOR_DETAILS`, `PROCUREMENT_REFERENCE`, or `AI_DOCUMENT_ANALYSIS`. Configuration changes permitted values; a named handler/policy enforces a specialized invariant. For `ADVANCE_SETTLEMENT`, outstanding balance is calculated from the original advance and valid prior settlements in code, not an arbitrary tenant formula. A new screen or document requirement alone is not a new scenario.
+
+The business request is upstream. `PaymentAuthorization` records authority to proceed. An ERP `PaymentRequest`, supplier invoice, or other financial object is downstream and adapter-specific. [Platform rules](12-platform-rules.md), [data/contracts](13-data-contracts.md), and [scenario onboarding](14-scenario-onboarding.md) specify the boundaries.

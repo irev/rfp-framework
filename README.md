@@ -2,7 +2,7 @@
 
 **Request for Payment Platform — enterprise blueprint (proposal).**
 
-This repository is a technology-agnostic reference for designing a multi-tenant Request for Payment (RFP) product. It is a planning baseline, not an implemented payment system or an approved business policy. All examples and defaults require validation with product, finance, legal, security, and operations owners before production use.
+The owner-provided deep research report is the primary design basis for this repository. This blueprint starts from product requirements and does **not** inherit behavior, tables, statuses, or timing from an earlier RFP application. This repository is a technology-agnostic reference for designing a multi-tenant Request for Payment (RFP) product. It is a planning baseline, not an implemented payment system or an approved business policy. All examples and defaults require validation with product, finance, legal, security, and operations owners before production use.
 
 **Terminology:** `RequestForPayment` is the business request and approval case. A downstream ERP `PaymentRequest` or payment instruction is a separate integration concept. `RFP` can mean *Request for Proposal* elsewhere; use the full name in code, APIs, and external contracts.
 
@@ -10,6 +10,10 @@ This repository is a technology-agnostic reference for designing a multi-tenant 
 
 | Need | Document |
 | --- | --- |
+| Research basis and scope | [Guide](docs/00-guide.md) |
+| Platform guarantees and policy boundary | [Platform rules](docs/12-platform-rules.md) |
+| Logical data, APIs, and events | [Data and contracts](docs/13-data-contracts.md) and [example schemas](schemas/README.md) |
+| Scenario onboarding | [Scenario onboarding](docs/14-scenario-onboarding.md) |
 | Business outcomes and scope | [BRD](docs/01-brd.md) |
 | Product goals and releases | [PRD](docs/02-prd.md) |
 | Testable behavior | [SRS/FSD](docs/03-srs-fsd.md) |
@@ -35,9 +39,10 @@ Customer-specific behavior belongs in **versioned, validated configuration** onl
 
 ## Repository use
 
-1. Review the [decision log](docs/11-decision-log.md); resolve decisions that affect your deployment.
-2. Select a scenario and record its classification dimensions in the [domain model](docs/05-domain-model.md).
-3. Turn [SRS/FSD](docs/03-srs-fsd.md) IDs into executable acceptance tests and link them through [traceability](docs/08-traceability.md).
-4. Record architecture trade-offs as ADRs before implementing a customer-specific exception.
+1. Start with the [research basis](docs/00-guide.md) and [platform rules](docs/12-platform-rules.md); do not import behavior from an earlier project.
+2. Review the [decision log](docs/11-decision-log.md); resolve decisions that affect your deployment.
+3. Select a scenario and record its classification dimensions in the [domain model](docs/05-domain-model.md).
+4. Turn [SRS/FSD](docs/03-srs-fsd.md) IDs into executable acceptance tests and link them through [traceability](docs/08-traceability.md).
+5. Record architecture trade-offs as ADRs before implementing a customer-specific exception.
 
 There is no license grant yet. Do not assume the repository contents may be redistributed or sold until the owner chooses a license.

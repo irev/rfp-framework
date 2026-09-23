@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rfp:schemas:document-analysis:v1",
+  "title": "DocumentAnalysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["analysisId", "documentVersionId", "schemaVersion", "provider", "model", "status", "fields", "validations"],
+  "properties": {
+    "analysisId": { "type": "string", "minLength": 1 },
+    "documentVersionId": { "type": "string", "minLength": 1 },
+    "schemaVersion": { "type": "string", "minLength": 1 },
+    "analysisProfileVersion": { "type": "string" },
+    "provider": { "type": "string", "minLength": 1 },
+    "model": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["QUEUED", "PROCESSING", "SUCCEEDED", "FAILED", "NEEDS_REVIEW"] },
+    "documentClassification": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "code": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["value", "confidence"],
+        "properties": {
+          "value": {},
+          "normalizedValue": {},
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "page": { "type": ["integer", "null"] },
+          "evidenceRef": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "validations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["rule", "result"],
+        "properties": {
+          "rule": { "type": "string" },
+          "result": { "enum": ["PASS", "FAIL", "WARNING", "UNKNOWN"] },
+          "message": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "humanReview": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["NOT_REQUIRED", "PENDING", "VERIFIED", "CORRECTED"] },
+        "reviewedBy": { "type": ["string", "null"] }
+      }
+    },
+    "rawArtifactRef": { "type": ["string", "null"] }
+  }
+}

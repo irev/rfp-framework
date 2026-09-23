@@ -29,3 +29,13 @@ Stakeholders include requester, verifier, approver, finance operations, procurem
 ## Constraints
 
 Regulatory retention, data residency, segregation of duties, delegated authority, accessibility, and ERP integration contracts vary by market and customer. Capture them as explicit requirements before deployment; do not infer compliance from this blueprint.
+
+## Research-derived business obligations
+
+| ID | Business requirement | Evidence of success |
+| --- | --- | --- |
+| BR-08 | Preserve meaning across customer configuration changes. | An auditor can reconstruct the scenario, workflow, document, accounting, and integration definitions effective for a past decision. |
+| BR-09 | Prevent duplicate or contradictory financial execution. | An uncertain ERP timeout is reconciled before another side effect; duplicate delivery does not create a second downstream operation. |
+| BR-10 | Make AI assistance optional and accountable. | Extraction results show provenance and can be corrected by a human; no AI result directly approves payment. |
+
+These outcomes describe a new multi-customer product. They do not adopt legacy RFP classifications or posting timing. See [platform rules](12-platform-rules.md).
