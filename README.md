@@ -23,7 +23,7 @@ This repository is a technology-agnostic reference for designing a multi-tenant 
 | Open choices | [Decision log](docs/11-decision-log.md) |
 | Design decision records | [ADR index](docs/adr/README.md) |
 
-The [repository site](https://irev.github.io/rfp-framework/) is prepared as a navigation and overview page; publication depends on repository visibility. `docs/` remains the source of truth.
+The public [repository site](https://irev.github.io/rfp-framework/) is a navigation and overview page. `docs/` remains the source of truth. The [skills catalog](skills/README.md) groups project-specific and reusable `SKILL.md` guidance for coding agents.
 
 ## Non-negotiable design rule
 

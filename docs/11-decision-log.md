@@ -4,7 +4,7 @@
 
 | ID | Decision to make | Proposed starting point | Owner/status |
 | --- | --- | --- | --- |
-| DEC-01 | Repository/site visibility and license | Private while IP/publication rights are assessed; no license grant yet. | Owner: TBD / Open |
+| DEC-01 | Repository/site visibility and license | Repository and GitHub Pages are public by owner request on 2026-09-24. License and reuse rights remain undecided; no license grant yet. | Owner: repository owner / Visibility decided; license open |
 | DEC-02 | Initial market, sectors, and jurisdictions | Choose one pilot segment and document regulatory constraints. | Product: TBD / Open |
 | DEC-03 | Tenant isolation model | Logical isolation with explicit tenant keys and adversarial tests; evaluate stronger isolation where contracts require it. | Architecture/security: TBD / Open |
 | DEC-04 | Portal vs ERP ownership of accounting, payment request, and settlement | Portal owns business case; ERP owns financial execution and authoritative payment outcome. | Finance/ERP: TBD / Open |
