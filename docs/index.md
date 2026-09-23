@@ -13,7 +13,7 @@ import ProcessExplorer from './.vitepress/theme/components/ProcessExplorer.vue'
 
 **Blueprint enterprise · status usulan**
 
-Blueprint ini diturunkan dari laporan riset enterprise yang diberikan pemilik produk. [Baca acuan dan batasnya](./00-guide.md). Contoh dari proyek RFP terdahulu tidak menjadi aturan produk ini.
+Acuan utama situs ini adalah **Blueprint Enterprise Request for Payment Platform — Production-Ready, Productizable, dan SaaS-Ready**. Mulai dari [panduan blueprint untuk AI](./00-guide.md) untuk decision tree, onboarding `PaymentScenario`, arsitektur akhir, dan aturan implementasi. Contoh dari proyek RFP terdahulu tidak menjadi aturan produk ini.
 
 Dokumentasi ini menjadi acuan untuk merancang platform pengajuan pembayaran yang dapat melayani proses internal dan eksternal, mengelola bukti, mengarahkan verifikasi dan persetujuan, serta berintegrasi dengan ERP. Kerangka ini tidak terikat pada Laravel, SAP, atau bahasa pemrograman tertentu.
 
@@ -27,6 +27,7 @@ Aturan dan contoh di sini adalah rancangan. Keputusan bisnis yang belum disahkan
 
 | Jika Anda ingin… | Mulai dari | Lanjutkan ke |
 | --- | --- | --- |
+| Mengikuti acuan dasar sebagai AI coding agent | [Panduan blueprint untuk AI](./00-guide.md) | [Skills](./skills/index.md) |
 | Memahami jaminan inti dan batas konfigurasi | [Aturan platform](./12-platform-rules.md) | [Data dan kontrak](./13-data-contracts.md) |
 | Menambah skenario bisnis | [Onboarding skenario](./14-scenario-onboarding.md) | [Model domain](./05-domain-model.md) |
 | Memahami tujuan dan ruang lingkup produk | [BRD](./01-brd.md) | [PRD](./02-prd.md) |

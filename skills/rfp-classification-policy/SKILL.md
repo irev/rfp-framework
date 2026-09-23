@@ -17,4 +17,4 @@ Treat `OTHER_PAYMENT` as a controlled scenario requiring a concrete purpose and 
 
 Read `docs/00-guide.md` and `docs/12-platform-rules.md` first. This is a new enterprise product baseline; do not infer rules, status meanings, or posting timing from an earlier RFP project.
 
-Apply the decision sequence in `docs/14-scenario-onboarding.md`: configuration → reusable capability → named handler/policy → new `PaymentScenario` only for a different purpose/lifecycle/accounting meaning. Pin published definition versions and record config provenance; publication requires schema and cross-reference tests.
+Follow the decision tree and publication gates in `docs/14-scenario-onboarding.md`: configuration → reusable capability → named handler/policy → a new `PaymentScenario` only for a distinct purpose, lifecycle, or accounting meaning. Produce a decision record with the independent dimensions, existing scenario comparison, selected branch, rejected alternatives, owner, affected definition versions, and acceptance tests. Pin published definitions and record configuration provenance; publication requires schema and cross-reference checks.

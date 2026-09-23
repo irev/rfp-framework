@@ -17,6 +17,39 @@ Client / API
 
 Start with a **modular monolith**, relational transactional core, private object storage, queue, transactional outbox, and ERP anti-corruption layer with explicit contracts. Split deployments only when independent scaling, data boundaries, or operational ownership justify the cost. Each module owns its rules and persistence access; APIs and events cross module boundaries.
 
+## End-state architecture
+
+The target is a logical product structure. It can run inside one modular monolith with background workers and adapters; the diagram does not mandate microservices or a particular programming language.
+
+```text
+Request context          Business context            Financial context
+scope + requester        scenario + references       payee + instruction + items
+            └──────────────────┬─────────────────────┘
+                               ↓
+                    Policy resolution engine
+                value + source scope + revision
+                               ↓
+     Procurement ───── Document evidence ───── Workflow
+     PO/contract       requirement/version/AI    definition/instance/return
+            └──────────────────┬─────────────────────┘
+                               ↓
+                Business authorization + audit
+                               ↓
+              AccountingProfile (versioned)
+                               ↓
+      IntegrationProfile → canonical ERP command
+                               ↓
+           ERP anti-corruption layer / mapper
+                    ↙                   ↘
+                SAP adapter         Other ERP adapter
+
+Cross-cutting: identity/authorization, tenant isolation,
+transactional DB, private object storage, queue/outbox,
+idempotency, observability, backup and recovery.
+```
+
+`RequestManagement`, `ScenarioCatalog`, `PayeeAndPayment`, `Procurement`, `DocumentEvidence`, `Workflow`, `Authorization`, `Accounting`, `Integration`, `TenantConfiguration`, and `AuditAndObservability` are logical bounded contexts with clear ownership. The core aggregates are `RequestForPayment`, `PaymentScenarioDefinition`, `Document`, `WorkflowDefinition`, `WorkflowInstance`, and `IntegrationSubmission`. They need not be separate deployables. A request command evaluates identity/tenant, policy and current workflow eligibility, business invariants, and optimistic version before committing state, audit, and outbox together. AI analysis and ERP delivery run asynchronously against immutable versions and are reconciled separately.
+
 ## Key contracts
 
 | Contract | Required fields/behavior |

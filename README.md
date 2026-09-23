@@ -2,7 +2,7 @@
 
 **Request for Payment Platform — enterprise blueprint (proposal).**
 
-The owner-provided deep research report is the primary design basis for this repository. This blueprint starts from product requirements and does **not** inherit behavior, tables, statuses, or timing from an earlier RFP application. This repository is a technology-agnostic reference for designing a multi-tenant Request for Payment (RFP) product. It is a planning baseline, not an implemented payment system or an approved business policy. All examples and defaults require validation with product, finance, legal, security, and operations owners before production use.
+The owner-provided *Blueprint Enterprise Request for Payment Platform — Production-Ready, Productizable, dan SaaS-Ready* report is the primary design basis for this repository. This blueprint starts from product requirements and does **not** inherit behavior, tables, statuses, or timing from an earlier RFP application. This repository is a technology-agnostic reference for designing a multi-tenant Request for Payment (RFP) product. It is a planning baseline, not an implemented payment system or an approved business policy. All examples and defaults require validation with product, finance, legal, security, and operations owners before production use.
 
 **Terminology:** `RequestForPayment` is the business request and approval case. A downstream ERP `PaymentRequest` or payment instruction is a separate integration concept. `RFP` can mean *Request for Proposal* elsewhere; use the full name in code, APIs, and external contracts.
 
@@ -10,7 +10,7 @@ The owner-provided deep research report is the primary design basis for this rep
 
 | Need | Document |
 | --- | --- |
-| Research basis and scope | [Guide](docs/00-guide.md) |
+| Primary research blueprint and AI implementation guide | [Blueprint guide](docs/00-guide.md) |
 | Platform guarantees and policy boundary | [Platform rules](docs/12-platform-rules.md) |
 | Logical data, APIs, and events | [Data and contracts](docs/13-data-contracts.md) and [example schemas](schemas/README.md) |
 | Scenario onboarding | [Scenario onboarding](docs/14-scenario-onboarding.md) |
