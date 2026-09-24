@@ -4,7 +4,7 @@
 
 ## Navigation model
 
-Use task-based navigation: **My drafts**, **My submitted requests**, **Assigned to me**, **Returned for correction**, **History**, and (for authorized operations) **Integration exceptions**. Show the request identity, current step, action owner, and next expected action consistently.
+Use task-based navigation: **My drafts**, **My submitted requests**, **Assigned to me**, **Returned for correction**, **History**, and (for authorized operations) **Integration exceptions**. These are authorized query projections over `RequestForPayment`, workflow, and integration records, not separate RFP entities. Show the request identity, current step, action owner, and next expected action consistently.
 
 ## Core flow
 
@@ -34,7 +34,7 @@ Choose scenario → Enter business context → Add payee/payment details
 
 ## Example: returned case
 
-Requester opens **Returned for correction**, reads the verifier's reason, edits only allowed fields, replaces an invalid receipt, reviews the diff and revised total, then resubmits. The next reviewer sees both revisions and the reason for return.
+When the configured target is the requester, the requester opens **Returned for correction**, reads the verifier's reason, edits only allowed fields, replaces an invalid receipt, reviews the diff and revised total, then resubmits. If the target is a prior review step, its eligible actor receives the case and follows that step's permitted correction or routing actions. The next reviewer sees both revisions and the reason for return.
 
 ## Research-derived interaction details
 

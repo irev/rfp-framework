@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:rfp:schemas:request-for-payment:create:v1",
   "title": "CreateRequestForPayment",
+  "$comment": "Illustrative complete create payload; minimum draft creation and partial updates remain open in DEC-14.",
   "type": "object",
   "additionalProperties": false,
   "required": ["scenarioDefinitionId", "requestScope", "procurementContext", "paymentStructure", "businessPurpose", "money", "organizationContext", "payees"],

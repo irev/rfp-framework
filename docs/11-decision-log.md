@@ -24,5 +24,6 @@ No row is an approved requirement until its owner records a decision. Avoid bury
 | DEC-11 | AI provider, allowed data boundary, review thresholds, golden dataset | Optional async enrichment with human authority. | Product/security: TBD / Open |
 | DEC-12 | SaaS tiers, entitlements, metering, dedicated deployment offer | Packaging is commercial policy; never weaken platform guarantees by tier. | Product/commercial: TBD / Open |
 | DEC-13 | Business completion, integration reconciliation, and settlement evidence | Define each status and authoritative evidence independently. | Finance/operations: TBD / Open |
+| DEC-14 | Minimum fields to create an incomplete draft and partial-update contract | Allow early draft creation before document upload; define field validation boundaries and conflict behavior before finalizing API/schema. | Product/API: TBD / Open |
 
 No decision imports rules or timing from an earlier RFP implementation. The [research basis](00-guide.md) controls scope; examples in that report are illustrative.

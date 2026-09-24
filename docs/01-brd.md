@@ -4,7 +4,7 @@
 
 ## Problem and opportunity
 
-Organizations route internal operating expenses and external vendor or partner payments through fragmented forms, email, attachments, and ERP handoffs. The product should make the business reason, evidence, decisions, and downstream status traceable across different customer policies without embedding each customer’s process in shared code.
+Organizations route operating expenses and vendor or partner payments requested by internal or external actors through fragmented forms, email, attachments, and ERP handoffs. Request scope describes the origin of the request, not the payee type. The product should make the business reason, evidence, decisions, and downstream status traceable across different customer policies without embedding each customer’s process in shared code.
 
 ## Outcomes
 

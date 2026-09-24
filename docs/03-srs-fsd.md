@@ -10,14 +10,14 @@
 | FR-02 | Validate a proposed submission against the effective configuration and core invariants. | Missing required evidence blocks submit and identifies each missing item. |
 | FR-03 | Freeze a submission revision when submitted. | Subsequent correction creates a new revision; prior decision inputs remain available. |
 | FR-04 | Resolve the next workflow actors from a published policy and current organizational context. | A user without the required authority cannot act even if a client sends a crafted request. |
-| FR-05 | Return a case with explicit reasons and affected fields/documents. | The requester sees reasons and can resubmit; the earlier revision remains visible to authorized auditors. |
+| FR-05 | Return a case to a valid configured workflow target with explicit reasons and affected fields/documents. | The eligible target actor sees the reasons and can correct or route the case according to policy; the earlier revision remains visible to authorized auditors. |
 | FR-06 | Record decisions with actor, role, timestamp, outcome, reason, policy version, and evidence revision. | Timeline can reconstruct the decision context. |
 | FR-07 | Upload/reupload documents with immutable versions and content checks. | Replacement becomes current while the old version stays available under retention policy. |
 | FR-08 | Link a settlement/adjustment request to its originating advance where required. | A settlement cannot reference another tenant’s case or exceed approved business constraints. |
 | FR-09 | Publish tenant policy only after schema validation, conflict checks, review, and effective date. | Invalid or overlapping policy is rejected; drafts retain their pinned scenario definition; submitted cases retain explicitly bound policy versions. |
 | FR-10 | Emit authorized payment handoff through an idempotent integration boundary. | Retried delivery with the same key creates no duplicate downstream request. |
 | FR-11 | Reconcile ERP callbacks or polls against the original handoff. | Unknown or contradictory outcomes enter an exception queue, never silently overwrite case history. |
-| FR-12 | Expose separate queues for drafts, assigned work, returned cases, completed cases, and integration exceptions. | Users see only tenant and role-authorized records. |
+| FR-12 | Expose authorized query views for drafts, assigned work, returned cases, completed business cases, and integration exceptions over the same case/workflow records. | Users see only tenant and role-authorized records; a view does not create another business aggregate. |
 
 ## Nonfunctional requirements
 

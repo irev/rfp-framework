@@ -30,7 +30,7 @@ Document storage keys and bank details need restricted access. Secrets remain in
 
 ## Example: create request
 
-Amounts cross JSON boundaries as decimal strings; calculations use decimal/fixed-point semantics. This example shows independent classification dimensions, not a universal required field set.
+Amounts cross JSON boundaries as decimal strings; calculations use decimal/fixed-point semantics. This is an illustrative **complete create payload**, not a minimum contract for saving an incomplete draft. The minimum draft fields and partial update behavior remain open in `DEC-14`. The example shows independent classification dimensions, not a universal required field set.
 
 ```json
 {

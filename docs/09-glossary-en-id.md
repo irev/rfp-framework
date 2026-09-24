@@ -11,6 +11,7 @@ Use English identifiers in code and integration contracts. Product labels may be
 | Payment Scenario | Skenario pembayaran | Tujuan/alasan bisnis pembayaran; bukan kategori PO, vendor, atau jumlah penerima. |
 | Procurement Context | Konteks pengadaan | PO, contract, non-PO, or no procurement relationship. |
 | Payee / Beneficiary | Penerima pembayaran | Party whose payment instruction is proposed. |
+| Payment To (UI label) | Dibayarkan kepada | Legacy/display label for selecting a `Payee`, not an independent domain entity. |
 | One-Time Vendor | Vendor sekali pakai | Vendor classification, not a payment scenario. |
 | Transfer List | Daftar transfer | Structured set of beneficiaries/payment lines. |
 | Payment Instruction | Instruksi pembayaran | Proposed bank/payment details; not proof of settlement. |

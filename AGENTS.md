@@ -10,6 +10,7 @@ This repository is a **proposal baseline** for a technology-agnostic enterprise 
 - Treat scope, payment scenario, procurement context, payee classification, and payment structure as separate dimensions. One-time vendor is a payee/vendor classification, not a payment scenario.
 - Pin scenario definition at draft creation; freeze workflow, document, accounting, and integration versions by first submission. Published definitions and document versions are immutable; migration or rebase is explicit and audited.
 - Keep business request status separate from integration status and evidence of actual settlement. AI analysis is asynchronous evidence, never approval authority.
+- Treat Process, Return, and History lists as authorized query views over the same case and workflow records. Resolve return targets from the versioned workflow; do not assume every return goes to the requester. Distinguish a complete create-payload example from the still-open minimum draft contract (`DEC-14`).
 - Define every lifecycle transition with an actor, preconditions, effects, audit record, and idempotency behavior. Do not infer financial posting from a portal status.
 - Keep supporting documents versioned; preserve old versions and links to the decision that used them.
 - Do not add code or policy for a specific customer directly to the shared core unless it is a general invariant or an approved product capability.

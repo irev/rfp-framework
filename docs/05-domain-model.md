@@ -25,7 +25,7 @@ The aggregate controls allowed state changes and consistency of its own revision
 
 | Dimension | Example values | Meaning |
 | --- | --- | --- |
-| `requestScope` | `INTERNAL`, `EXTERNAL` | Who initiates the business request. |
+| `requestScope` | `INTERNAL`, `EXTERNAL` | Origin/context of the requester, independent of the payee type. An internal requester may pay a vendor. |
 | `paymentScenario` | `VENDOR_INVOICE`, `EMPLOYEE_REIMBURSEMENT`, `EMPLOYEE_BENEFIT`, `HONORARIUM`, `ADVANCE`, `ADVANCE_SETTLEMENT`, `UTILITY_PAYMENT`, `REFUND`, `REGULATORY_PAYMENT`, `OTHER_PAYMENT` | Business reason and lifecycle rules. |
 | `procurementContext` | `PO_BASED`, `CONTRACT_BASED`, `NON_PO`, `NO_PROCUREMENT` | Source of procurement commitment/evidence. |
 | `payeeType` | `VENDOR`, `EMPLOYEE`, `INDIVIDUAL`, `GOVERNMENT`, `ORGANIZATION`, `OTHER` | Party receiving payment. |
@@ -33,6 +33,14 @@ The aggregate controls allowed state changes and consistency of its own revision
 | `paymentStructure` | `SINGLE_PAYEE`, `MULTI_PAYEE` | Number of beneficiaries/instructions. |
 
 `ONE_TIME_VENDOR` is **not** a payment scenario. A transfer list is a payment structure/data capability, not a reason for payment. “Other payment” needs controlled free-form description, risk review, and eventual reclassification criteria.
+
+## Variants, procurement matching, and rule layers
+
+`ScenarioVariant` is optional: use it for a meaningful subcategory of an existing business purpose, not as a place for unrelated technical, payee, or procurement differences. `ProcurementContext` is first-class; a `MatchingPolicy` such as `NO_MATCH`, `TWO_WAY`, or `THREE_WAY` can select the required PO, receipt/service-entry, and invoice evidence according to a validated definition. Do not collapse these into `isPo` or a new payment scenario.
+
+Apply rules in three layers: **core invariants** for every request, reusable **capability rules** (for example, multi-payee item sum equals the request total), and named **scenario policies/handlers** for genuinely unique invariants (for example, advance settlement cannot exceed outstanding balance). Configuration supplies permitted values and references; it must not execute arbitrary expressions or replace those code-owned rules.
+
+Payee/master data may be looked up from another system; capture protected identity and payment snapshots at the agreed lifecycle boundary so later master changes do not silently rewrite a historical decision. `Payment To` is a possible UI label for a payee selection, not a separate domain type.
 
 ## New scenario intake contract
 

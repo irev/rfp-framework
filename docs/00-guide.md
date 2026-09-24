@@ -23,11 +23,15 @@ Bangun **Request for Payment Orchestration Platform** untuk banyak organisasi: t
 
 PO/non-PO, vendor satu kali, internal/eksternal, dan multi-payee **bukan** skenario pembayaran. Contoh dalam riset membantu klasifikasi; aturan atau waktu posting dari proyek RFP terdahulu tidak diwariskan ke produk ini. Lihat [model domain](05-domain-model.md) dan [glosarium EN–ID](09-glossary-en-id.md).
 
+::: info Perubahan arah dari percakapan awal
+Saran awal untuk modul Laravel pernah memakai `TransactionType`, `TransactionDetail`, dan tabel master terkait. Arahan produk enterprise yang lebih akhir menggantikan pusat klasifikasi itu dengan `PaymentScenarioDefinition` dan dimensi independen. Model awal tersebut adalah konteks desain sebelumnya, bukan kontrak yang harus dibangun oleh framework ini.
+:::
+
 ## Aturan yang harus dipertahankan AI
 
 Konfigurasi menentukan variasi bisnis yang diizinkan; core code menjamin keamanan dan kebenaran cara menjalankannya. Pelanggan boleh memilih dokumen, threshold, aktor, workflow, mata uang, dan route yang valid. Pelanggan tidak boleh mematikan isolasi tenant, otorisasi, audit, integritas transisi, versi dokumen, ketepatan nilai uang, idempotensi, atau outbox.
 
-Definisi yang dipublikasikan immutable. Draft pengajuan mem-pin `PaymentScenarioDefinition`; pada submission pertama, versi workflow, dokumen, accounting, dan integration serta fakta historis yang diperlukan dibekukan. Rebase/migrasi harus eksplisit dan diaudit. Status business request, status `IntegrationSubmission`, dan bukti settlement dibaca terpisah. AI dokumen bekerja asinkron sebagai ekstraksi/sinyal; aturan deterministik dan manusia memegang validasi serta persetujuan. Rincian wajib ada di [aturan platform](12-platform-rules.md).
+Definisi yang dipublikasikan immutable. Draft pengajuan mem-pin `PaymentScenarioDefinition`; pada submission pertama, versi workflow, dokumen, accounting, dan integration serta fakta historis yang diperlukan dibekukan. Rebase/migrasi harus eksplisit dan diaudit. Status business request, status `IntegrationSubmission`, dan bukti settlement dibaca terpisah. Return diarahkan ke target langkah workflow yang valid; targetnya tidak selalu pemohon. Draft boleh dibuat sebelum dokumen diunggah, sedangkan minimum field draft masih keputusan terbuka (`DEC-14`). AI dokumen bekerja asinkron sebagai ekstraksi/sinyal; aturan deterministik dan manusia memegang validasi serta persetujuan. Rincian wajib ada di [aturan platform](12-platform-rules.md).
 
 ## PaymentScenario Onboarding
 
